@@ -6,11 +6,12 @@ export default ({ data }) => {
   const article = data.markdownRemark
   return (
     <Layout>
-      <div>
-        <h1>{article.frontmatter.headline}</h1>
-        <h3>{article.frontmatter.abstract}</h3>
-        <img src={article.frontmatter.header_image} alt={article.frontmatter.slug}/>
-        <div dangerouslySetInnerHTML={{ __html: article.html }} />
+      <div class="article">
+        <h1 class="article__headline">{article.frontmatter.headline}</h1>
+        <h3 class="article__abstract">{article.frontmatter.abstract}</h3>
+        <img class="article__headerImage" src={article.frontmatter.header_image} alt={article.frontmatter.slug}/>
+        <div class="article__text" dangerouslySetInnerHTML={{ __html: article.html }} />
+        <a class="link" href="/" >Weitere Artikel</a>
       </div>
     </Layout>
   )
