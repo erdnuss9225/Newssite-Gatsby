@@ -8,6 +8,7 @@ module.exports = {
   siteMetadata: {
     title: `Breaking News of the Day`,
   },
+ 
   plugins: [
       {
         resolve: `gatsby-source-filesystem`,
@@ -16,5 +17,6 @@ module.exports = {
           path: `${__dirname}/articleData/`,
         },
       },
+      `gatsby-transformer-remark`,
   ]
 }
