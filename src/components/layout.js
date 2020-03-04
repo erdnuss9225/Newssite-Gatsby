@@ -56,14 +56,14 @@ export default ({ children }) => {
               <Link style={{ textDecoration: 'none' }} to="/"><h1 class="headline_page">{data.site.siteMetadata.title}</h1></Link>
               <div class="languagepicker">
                 Language is    {state.theme} <br></br>
-                <button
+                <Link to="/"><button
                   type="button"
                   onClick={() => {
                     dispatch({ type: "TOGGLE_THEME" })
                   }}
                 >
                   Deutsche Version anzeigen
-                </button>
+                </button></Link>
               </div>
           </header>
           {children}
