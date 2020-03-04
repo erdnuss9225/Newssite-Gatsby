@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 export default ({data}) => {
 
@@ -13,10 +13,11 @@ export default ({data}) => {
       {data.allMarkdownRemark.edges.map(({node}) => (
       
         <div key={node.id}>
-
-          <img src={node.frontmatter.teaser_image} alt="teaser_image"/>
-          <h3>{node.frontmatter.headline}</h3>
-          <p>{node.frontmatter.abstract}</p>
+          <Link to={node.fields.slug}>
+            <img src={node.frontmatter.teaser_image} alt="teaser_image"/>
+            <h3>{node.frontmatter.headline}</h3>
+            <p>{node.frontmatter.abstract}</p>
+          </Link>
 
         </div>
       
@@ -32,10 +33,12 @@ query {
     totalCount
     edges {
       node {
+        fields {
+          slug
+        }
         frontmatter {
           teaser_image
           headline
-          slug
           abstract
         }
       }
