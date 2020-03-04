@@ -16,15 +16,17 @@ import { useStaticQuery, Link, graphql } from "gatsby"
           `
         )
         return (
-
-            <div>
-                <Link to={`/`}>
-                <h1> {data.site.siteMetadata.title} </h1>
+          <div>
+            <div class="header">
+                <Link style={{ textDecoration: 'none' }} to={`/`}>
+                  <h1> {data.site.siteMetadata.title} </h1>
                 </Link>
+                
                 <Link to={"/about"}>
-                About
+                  About
                 </Link>
-                {children}
             </div>
+             {children}
+          </div>
         )
     }
