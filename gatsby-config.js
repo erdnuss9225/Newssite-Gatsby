@@ -8,4 +8,13 @@ module.exports = {
   siteMetadata: {
     title: `Breaking News of the Day`,
   },
+  plugins: [
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `src`,
+          path: `${__dirname}/articleData/`,
+        },
+      },
+  ]
 }
