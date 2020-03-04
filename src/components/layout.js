@@ -26,18 +26,50 @@ export default ({ children }) => {
     console.log(state.theme)
     console.log(dispatch)
 
-  return (
-    <div>
-      <div class="header">
-          <Link style={{ textDecoration: 'none' }} to={`/`}>
-            <h1> {data.site.siteMetadata.title} </h1>
-          </Link>
-          
-          <Link to={"/about"}>
-            About
-          </Link>
-      </div>
+    if (state.theme === "de") {
+
+      return (
+        <div>
+        <header class="header">
+            <Link style={{ textDecoration: 'none' }} to="/"><h1 class="headline_page">Breaking News of the Day</h1></Link>
+            <div class="languagepicker">
+              Sprache ist    {state.theme} <br></br>
+              <button
+                type="button"
+                onClick={() => {
+                  dispatch({ type: "TOGGLE_THEME" })
+                }}
+              >
+                Show english version
+              </button>
+            </div>
+        </header>
         {children}
-    </div>
-  )
+        </div>
+      )
+      
+    } else {
+  
+      return (
+        <div>
+          <header class="header">
+              <Link style={{ textDecoration: 'none' }} to="/"><h1 class="headline_page">Breaking News of the Day</h1></Link>
+              <div class="languagepicker">
+                Language is    {state.theme} <br></br>
+                <button
+                  type="button"
+                  onClick={() => {
+                    dispatch({ type: "TOGGLE_THEME" })
+                  }}
+                >
+                  Deutsche Version anzeigen
+                </button>
+              </div>
+          </header>
+          {children}
+        </div>
+        
+      )
+  
+    }
 }
