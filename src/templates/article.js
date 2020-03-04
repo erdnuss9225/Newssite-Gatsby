@@ -7,7 +7,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <div class="article">
-        <h1 class="article__headline">{article.frontmatter.headline}</h1>
+        <h2 class="article__headline">{article.frontmatter.headline}</h2>
         <h3 class="article__abstract">{article.frontmatter.abstract}</h3>
         <img class="article__headerImage" src={article.frontmatter.header_image} alt={article.frontmatter.slug}/>
         <div class="article__text" dangerouslySetInnerHTML={{ __html: article.html }} />
