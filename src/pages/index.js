@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, StaticQuery } from "gatsby"
 
 export default ({data}) => {
 
@@ -8,10 +8,9 @@ export default ({data}) => {
 
   return (
     <Layout>
+
       
-      
-      <h4>{data.allMarkdownRemark.totalCount} Artikel verfügbar</h4>
-      {data.allMarkdownRemark.edges.map(({node}) => (
+      {data.en.edges.map(({node}) => (
       
         <div key={node.id} class="teaser">
           <Link to={node.fields.slug} style={{ textDecoration: 'none'}}>
@@ -34,20 +33,35 @@ export default ({data}) => {
 
 export const query = graphql`
 query {
-  allMarkdownRemark {
-    totalCount
+  en: allMarkdownRemark(filter: {frontmatter: {lang: {eq: "en"}}}) {
     edges {
       node {
-        fields {
-          slug
-        }
         frontmatter {
           teaser_image
           headline
           abstract
         }
+        fields {
+          slug
+        }
       }
     }
+    totalCount
+  }
+  de: allMarkdownRemark(filter: {frontmatter: {lang: {eq: "de"}}}) {
+    edges {
+      node {
+        frontmatter {
+          teaser_image
+          headline
+          abstract
+        }
+        fields {
+          slug
+        }
+      }
+    }
+    totalCount
   }
 }
 `

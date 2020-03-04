@@ -31,7 +31,7 @@ export default ({ children }) => {
       return (
         <div>
         <header class="header">
-            <Link style={{ textDecoration: 'none' }} to="/"><h1 class="headline_page">Breaking News of the Day</h1></Link>
+            <Link style={{ textDecoration: 'none' }} to="/"><h1 class="headline_page">{data.site.siteMetadata.title}</h1></Link>
             <div class="languagepicker">
               Sprache ist    {state.theme} <br></br>
               <button
@@ -53,7 +53,7 @@ export default ({ children }) => {
       return (
         <div>
           <header class="header">
-              <Link style={{ textDecoration: 'none' }} to="/"><h1 class="headline_page">Breaking News of the Day</h1></Link>
+              <Link style={{ textDecoration: 'none' }} to="/"><h1 class="headline_page">{data.site.siteMetadata.title}</h1></Link>
               <div class="languagepicker">
                 Language is    {state.theme} <br></br>
                 <button
